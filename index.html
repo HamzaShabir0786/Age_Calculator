@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 300px;
+      }
+      input {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .result {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Age Calculator</h2>
+      <input type="date" id="dob" placeholder="Enter your date of birth" />
+      <button onclick="calculateAge()">Calculate Age</button>
+      <p class="result" id="result"></p>
+    </div>
+
+    <script>
+      function calculateAge() {
+        const dobInput = document.getElementById("dob").value;
+
+        if (!dobInput) {
+          document.getElementById("result").innerText = "Please select a date.";
+          return;
+        }
+
+        const today = new Date();
+        const birthDate = new Date(dobInput);
+
+        // Calculate years
+        let ageYears = today.getFullYear() - birthDate.getFullYear();
+        let ageMonths = today.getMonth() - birthDate.getMonth();
+        let ageDays = today.getDate() - birthDate.getDate();
+
+        // Adjust for incomplete months
+        if (ageDays < 0) {
+          ageMonths--;
+          const previousMonth = new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+          ).getDate();
+          ageDays += previousMonth;
+        }
+
+        // Adjust for incomplete years
+        if (ageMonths < 0) {
+          ageYears--;
+          ageMonths += 12;
+        }
+
+        document.getElementById(
+          "result"
+        ).innerText = `Your age is: ${ageYears} years, ${ageMonths} months, and ${ageDays} days.`;
+      }
+    </script>
+  </body>
+</html>
