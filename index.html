@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <div class="container">
@@ -13,11 +14,20 @@
       <div class="divs d3"></div>
       <div class="divs d4"></div>
 
-      <h2>Age Calculator</h2>
-      <input type="date" id="dob" placeholder="Enter your date of birth" />
-      <button onclick="calculateAge()">Calculate Age</button>
+      <div data-aos="fade-down">
+        <h2>Age Calculator</h2>
+      </div>
+      <div data-aos="zoom-in">
+        <input type="date" id="dob" placeholder="Enter your date of birth" />
+      </div>
+      <div data-aos="fade-right">
+        <button onclick="calculateAge()">Calculate Age</button>
+      </div>
       <p class="result" id="result"></p>
-      <p class="made">Made by <b class="b">H</b>amza</p>
+
+      <div data-aos="fade-left">
+        <p class="made">Made by <b class="b">H</b>amza</p>
+      </div>
     </div>
 
     <script>
@@ -55,6 +65,10 @@
           "result"
         ).innerText = `Your are ${ageYears} Y, ${ageMonths} M, and ${ageDays} D Old.`;
       }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
   </body>
 </html>
