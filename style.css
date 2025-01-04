@@ -61,6 +61,11 @@ button:hover {
   margin-left: 280px;
   margin-top: 160px;
 }
+.b {
+  font-size: 20px;
+  font-family: cursive;
+  color: #007bff;
+}
 
 @keyframes colorchange {
   0% {
