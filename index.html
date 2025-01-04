@@ -17,6 +17,7 @@
       <input type="date" id="dob" placeholder="Enter your date of birth" />
       <button onclick="calculateAge()">Calculate Age</button>
       <p class="result" id="result"></p>
+      <p class="made">Made by <b class="b">H</b>amza</p>
     </div>
 
     <script>
@@ -31,15 +32,10 @@
         const today = new Date();
         const birthDate = new Date(dobInput);
 
-        // Calculate years
         let ageYears = today.getFullYear() - birthDate.getFullYear();
         let ageMonths = today.getMonth() - birthDate.getMonth();
         let ageDays = today.getDate() - birthDate.getDate();
-        console.log("age years" + ageYears);
-        console.log("ageMonths" + ageMonths);
-        console.log("ageDays" + ageDays);
 
-        // Adjust for incomplete months
         if (ageDays < 0) {
           ageMonths--;
           const previousMonth = new Date(
@@ -50,7 +46,6 @@
           ageDays += previousMonth;
         }
 
-        // Adjust for incomplete years
         if (ageMonths < 0) {
           ageYears--;
           ageMonths += 12;
@@ -58,7 +53,7 @@
 
         document.getElementById(
           "result"
-        ).innerText = `You're ${ageYears} Y, ${ageMonths} M, and ${ageDays} D Old.`;
+        ).innerText = `Your are ${ageYears} Y, ${ageMonths} M, and ${ageDays} D Old.`;
       }
     </script>
   </body>
