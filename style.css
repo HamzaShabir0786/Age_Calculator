@@ -109,4 +109,7 @@ h2 {
     width: 300px;
     height: 400px;
   }
+  .divs {
+    display: none;
+  }
 }
