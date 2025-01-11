@@ -61,6 +61,11 @@ button:hover {
   margin-left: 280px;
   margin-top: 160px;
 }
+h2 {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #007bff;
+}
 .b {
   font-size: 20px;
   font-family: cursive;
